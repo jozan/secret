@@ -1,0 +1,12 @@
+{
+  "name": "@latehours/secret",
+  "module": "src/secret/.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "fast-check": "^3.17.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "type": "module"
+}
