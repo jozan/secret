@@ -1,12 +1,46 @@
 {
   "name": "@latehours/secret",
-  "module": "src/secret/.ts",
+  "version": "0.1.0",
+  "type": "module",
+  "module": "dist/esm/secret.js",
+  "main": "dist/cjs/secret.js",
+  "types": "dist/dts/secret.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/secret.js",
+      "require": "./dist/cjs/secret.js",
+      "types": "./dist/dts/secret.d.ts"
+    }
+  },
   "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/plugin-transform-export-namespace-from": "^7.24.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
     "@types/bun": "latest",
-    "fast-check": "^3.17.1"
+    "babel-plugin-annotate-pure-calls": "^0.4.0",
+    "fast-check": "^3.17.1",
+    "typescript": "^5.4.5"
   },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "description": "`secret` is a simple utility libraty for managing secrets in a TypeScript app.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jozan/secret.git"
   },
-  "type": "module"
+  "keywords": [
+    "secret"
+  ],
+  "author": "Johan Ruokangas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jozan/secret/issues"
+  },
+  "homepage": "https://github.com/jozan/secret#readme",
+  "scripts": {
+    "clean": "rm -r ./dist",
+    "check": "tsc -b tsconfig.json",
+    "build": "bun run clean && bun run build-esm && bun run build-cjs",
+    "build-esm": "tsc -b tsconfig.build.json",
+    "build-cjs": "babel dist/esm --plugins @babel/transform-export-namespace-from --plugins @babel/transform-modules-commonjs --out-dir dist/cjs --source-maps"
+  }
 }

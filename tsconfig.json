@@ -6,11 +6,10 @@
     "module": "ESNext",
     "moduleDetection": "force",
     "jsx": "react-jsx",
-    "allowJs": true,
+    "allowJs": false,
 
     // Bundler mode
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
 
@@ -22,6 +21,7 @@
     // Some stricter flags (disabled by default)
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
-  }
+    "noPropertyAccessFromIndexSignature": false,
+  },
+  "include": ["src"]
 }
