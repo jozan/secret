@@ -1,5 +1,10 @@
 # `secret`
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jozan/secret/build.yml?branch=main&style=flat)
+![NPM Downloads](https://img.shields.io/npm/d18m/%40latehours%2Fsecret?style=flat)
+![GitHub License](https://img.shields.io/github/license/jozan/secret?style=flat)
+![Static Badge](https://img.shields.io/badge/made%20with%20-%20husqvarna%20vacuum%20cleaner%20-%20made%20with%20husqvarna?style=flat&logo=husqvarna)
+
 `secret` is a simple utility libraty for managing secrets in a TypeScript app.
 
 the main purpose is to prevent accidenal leaking of secrets into logs,
