@@ -30,8 +30,8 @@
   "keywords": [
     "secret"
   ],
-  "author": "Johan Ruokangas",
-  "license": "ISC",
+  "author": "jozan <johan@latehours.net>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jozan/secret/issues"
   },
