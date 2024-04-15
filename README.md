@@ -2,16 +2,15 @@
 
 `secret` is a simple utility libraty for managing secrets in a TypeScript app.
 
-the main functionality is to prevent accidenal leaking of secrets into logs,
-stdout, or files by the developer.
+the main purpose is to prevent accidenal leaking of secrets into logs,
+stdout, JSON.stringify calls, writes to files and so on by the developer.
 
-it attemps to hide the secret from leaking into stdout, logs, and files. it does
-not prevent the secret from leaking into memory nor prevent the secret from
-being read by a debugger.
+the secret is still stored in memory unencrypted and can be read by a debugger
+or by inspecting the memory of the process. this is not a security library.
 
-the secret is stored in the secret object as a bytes array so it's not
-plaintext. but keep in mind that this is more security by obscurity than
-anything else.
+behind the scenes the secret is stored in the secret object as a bytes array so
+it's not plaintext. but keep in mind that this is more security by obscurity
+than anything else.
 
 ## usage
 
