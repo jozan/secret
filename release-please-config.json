@@ -2,11 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "release-type": "node",
   "initial-version": "0.1.0",
-  "prerelease-type": "alpha",
-  "prerelease": true,
   "bump-minor-pre-major": true,
-  "bump-patch-for-minor-pre-major": true,
-  "versioning": "prerelease",
   "packages": {
     ".": {}
   }
