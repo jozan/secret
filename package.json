@@ -1,6 +1,6 @@
 {
   "name": "@latehours/secret",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "type": "module",
   "module": "dist/esm/secret.js",
   "main": "dist/cjs/secret.js",
