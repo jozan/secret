@@ -3,6 +3,7 @@
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jozan/secret/build.yml?branch=main&style=flat)
 ![Dependencies amount 0](https://img.shields.io/badge/dependencies%20-%200%20-%200?style=flat)
 ![NPM Downloads](https://img.shields.io/npm/dm/%40latehours%2Fsecret?style=flat)
+![NPM Version](https://img.shields.io/npm/v/%40latehours%2Fsecret?style=flat)
 ![GitHub License](https://img.shields.io/github/license/jozan/secret?style=flat)
 ![Made with vacuum cleaner](https://img.shields.io/badge/made%20with%20-%20husqvarna%20vacuum%20cleaner%20-%20made%20with%20husqvarna?style=flat&logo=husqvarna)
 [![package size](https://deno.bundlejs.com/?q=%40latehours/secret&badge=detailed&badge-style=flat&label=size)](https://bundlejs.com/?q=%40latehours/secret)
@@ -27,9 +28,6 @@ it's not plaintext. but keep in mind that this is more security by obscurity
 than anything else.
 
 ## usage
-
-> [!NOTE]
-> the secret library is currently not published to npm.
 
 install the library using your package manager of choice:
 
