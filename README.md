@@ -4,8 +4,8 @@
 ![Dependencies amount 0](https://img.shields.io/badge/dependencies%20-%200%20-%200?style=flat)
 ![NPM Downloads](https://img.shields.io/npm/d18m/%40latehours%2Fsecret?style=flat)
 ![GitHub License](https://img.shields.io/github/license/jozan/secret?style=flat)
-![npm package minimized gzipped size (scoped)](https://img.shields.io/bundlejs/size/%40latehours/secret?style=flat&label=gzip)
 ![Made with vacuum cleaner](https://img.shields.io/badge/made%20with%20-%20husqvarna%20vacuum%20cleaner%20-%20made%20with%20husqvarna?style=flat&logo=husqvarna)
+[![package size](https://deno.bundlejs.com/?q=%40latehours/secret&badge=detailed&badge-style=flat&label=size)](https://bundlejs.com/?q=%40latehours/secret)
 
 **`secret`** is a simple utility library for handling sensitive data in any
 typescript app. no more accidentally leaking tokens or emails into logs!
