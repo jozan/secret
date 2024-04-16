@@ -4,6 +4,8 @@
   "initial-version": "0.1.0",
   "prerelease-type": "alpha",
   "prerelease": true,
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
   "packages": {
     ".": {}
   }
