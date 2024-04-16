@@ -1,4 +1,4 @@
-# `secret`
+# `secret` 🤫
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jozan/secret/build.yml?branch=main&style=flat)
 ![NPM Downloads](https://img.shields.io/npm/d18m/%40latehours%2Fsecret?style=flat)
@@ -22,6 +22,8 @@ than anything else.
 > [!NOTE]
 > the secret library is currently not published to npm.
 
+install the library using your package manager of choice:
+
 ```sh
 npm install @latehours/secret
 pnpm install @latehours/secret
@@ -29,10 +31,12 @@ bun add @latehours/secret
 yarn add @latehours/secret
 ```
 
+usage in your code:
+
 ```typescript
 import * as Secret from "@latehours/secret";
 
-// conseal a string into a secret
+// conceal a string into a secret
 const hidden = Secret.fromString("tussihovi");
 
 console.log(hidden); // logs [REDACTED]
@@ -52,7 +56,7 @@ the implementation is based on the following libraries:
 
 this improves on the above libraries by hiding the raw value of the secret
 (bytes array) from leaking when calling `console.log` or `utils.inspect` on the
-secret object. additionally the raw value is not retrievable by object access.
+secret object. also the raw value is not retrievable by object access.
 
 ## development
 
@@ -67,3 +71,6 @@ To run tests:
 ```bash
 bun --watch test
 ```
+
+when creating commits follow the [conventional commits(https://www.conventionalcommits.org)
+format.
