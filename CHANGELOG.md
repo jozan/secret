@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/jozan/secret/compare/v0.4.0...v0.5.0) (2024-04-16)
+
+
+### Features
+
+* add and document io-ts codec and zod scheme ([27e3b55](https://github.com/jozan/secret/commit/27e3b55095c82570788370fa244aa7507feed04d))
+
 ## [0.4.0](https://github.com/jozan/secret/compare/v0.3.0...v0.4.0) (2024-04-16)
 
 
