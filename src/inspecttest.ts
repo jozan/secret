@@ -1,5 +1,5 @@
 // THIS IS TEST FILE FOR UTILS.INSPECT
-// REQUIRED BY: index.test.ts
+// REQUIRED BY: secret.test.ts
 import * as Secret from "./secret";
 import { inspect } from "util";
 
