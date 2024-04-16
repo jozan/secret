@@ -12,6 +12,11 @@
       "types": "./dist/dts/secret.d.ts"
     }
   },
+  "files": [
+    "./dist/**/*.js",
+    "./dist/**/*.d.ts",
+    "./dist/**/*.map"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.24.1",
     "@babel/core": "^7.24.4",
