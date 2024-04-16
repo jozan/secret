@@ -10,6 +10,16 @@
       "import": "./dist/esm/secret.js",
       "require": "./dist/cjs/secret.js",
       "types": "./dist/dts/secret.d.ts"
+    },
+    "./io-ts": {
+      "import": "./dist/esm/io-ts/secret.js",
+      "require": "./dist/cjs/io-ts/secret.js",
+      "types": "./dist/dts/io-ts/secret.d.ts"
+    },
+    "./zod": {
+      "import": "./dist/esm/zod/secret.js",
+      "require": "./dist/cjs/zod/secret.js",
+      "types": "./dist/dts/zod/secret.d.ts"
     }
   },
   "files": [
@@ -25,7 +35,10 @@
     "@types/bun": "latest",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "fast-check": "^3.17.1",
-    "typescript": "^5.4.5"
+    "fp-ts": "^2.16.5",
+    "io-ts": "^2.2.21",
+    "typescript": "^5.4.5",
+    "zod": "^3.22.4"
   },
   "description": "`secret` is a simple utility libraty for managing secrets in a TypeScript app.",
   "repository": {
