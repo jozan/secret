@@ -204,18 +204,67 @@ describe("secret: output to file", () => {
   });
 });
 
-describe("secret: stdout", () => {
+describe("secret: stdout & stderr", () => {
   test("secret should not be exposed when callig console.log", () => {
-    const proc = Bun.spawnSync(["bun", "run", "./src/stdouttest.ts"]);
-    const stdout = proc.stdout.toString();
+    const proc = Bun.spawnSync([
+      "bun",
+      "run",
+      "./src/test-scripts/stdouttest.ts",
+    ]);
+    const stderr = proc.stderr.toString();
+    expect(stderr).toEqual("");
 
+    const stdout = proc.stdout.toString();
     expect(stdout).toEqual("[REDACTED]\n");
   });
 
-  test("secret should not be exposed when inspecting and logging the output", () => {
-    const proc = Bun.spawnSync(["bun", "run", "./src/inspecttest.ts"]);
-    const stdout = proc.stdout.toString();
+  test("secret should not be exposed when inspecting and logging the output usign console.error", () => {
+    const proc = Bun.spawnSync([
+      "bun",
+      "run",
+      "./src/test-scripts/stderrtest.ts",
+    ]);
 
+    const stdout = proc.stdout.toString();
+    expect(stdout).toEqual("");
+
+    const stderr = proc.stderr.toString();
+    expect(stderr).toEqual("[REDACTED]\n");
+  });
+
+  test("secret should not be exposed when inspecting and logging the output", () => {
+    const proc = Bun.spawnSync([
+      "bun",
+      "run",
+      "./src/test-scripts/inspecttest.ts",
+    ]);
+
+    const stderr = proc.stderr.toString();
+    expect(stderr).toEqual("");
+
+    const stdout = proc.stdout.toString();
     expect(stdout).toEqual("[REDACTED]\n");
+  });
+
+  test("secret should not be exposed when app throws and exists", () => {
+    const proc = Bun.spawnSync([
+      "bun",
+      "run",
+      "./src/test-scripts/throwexittest.ts",
+    ]);
+
+    const stdout = proc.stdout.toString();
+    expect(stdout).toEqual("");
+
+    const stderr = proc.stderr.toString();
+
+    // find relevant line from stderr
+    const lineStartsWithSpaces = "\\s{4,}.*\\n";
+    const redactedPattern = "\\s*error:\\s+\\[REDACTED\\]\\s*\\n";
+    const redactedErrorPattern = new RegExp(
+      lineStartsWithSpaces + redactedPattern + lineStartsWithSpaces
+    );
+
+    expect(stderr).toMatch(redactedErrorPattern);
   });
 });
