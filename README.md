@@ -59,6 +59,53 @@ sending a secret over the network is not possible as the secret is not
 serializable by design. use encryption for that or better yet, don't handle the
 secret at all.
 
+### `io-ts` codec
+
+provided for convenience. check out tests for exported `io-ts` `decoder` and
+`encoder` usage.
+
+you need to have `io-ts` installed in your project.
+
+```typescript
+import { SecretCodec } from "@latehours/secret/io-ts";
+import { pipe } from "fp-ts/function";
+import { fold } from "fp-ts/Either";
+
+pipe(
+  "tussihovi",
+  SecretCodec.decode,
+  fold(
+    () => {
+      expect.unreachable("decoding should not fail");
+    },
+    (secret) => {
+      const exposed = SecretCodec.encode(secret);
+      expect(exposed).toEqual("tussihovi");
+    }
+  )
+);
+```
+
+### `zod` schema
+
+provided for convenience.
+
+you need to have `zod` installed in your project.
+
+```typescript
+import * as Secret from "@latehours/secret";
+import { Secret as SecretSchema } from "@latehours/secret/zod";
+
+const secret = SecretSchema.safeParse(input);
+
+if (secret.success) {
+  expect(Secret.isSecret(secret.data)).toBe(true);
+
+  const exposed = Secret.expose(secret.data);
+  expect(exposed).toEqual(input);
+}
+```
+
 ## aknowledgements
 
 the idea for this library came from the rust cargo [`secrecy`](https://docs.rs/secrecy/latest/secrecy/).
