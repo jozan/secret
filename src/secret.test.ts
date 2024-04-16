@@ -17,6 +17,30 @@ describe("secret encode/decode", () => {
     );
   });
 
+  test("check if something is a secret", () => {
+    fc.assert(
+      fc.property(fc.string({ minLength: 1 }), (input) => {
+        const secret = Secret.fromString(input);
+        const isSecret = Secret.isSecret(secret);
+        const notSecret = Secret.isSecret(input);
+
+        expect(isSecret).toBe(true);
+        expect(notSecret).toBe(false);
+      })
+    );
+  });
+
+  test("secrets equal by value", () => {
+    fc.assert(
+      fc.property(fc.string({ minLength: 1 }), (input) => {
+        const secret1 = Secret.fromString(input);
+        const secret2 = Secret.fromString(input);
+
+        expect(secret1.equals(secret2)).toBe(true);
+      })
+    );
+  });
+
   test("secret should not expose any keys when Object.keys is called", () => {
     fc.assert(
       fc.property(fc.string({ minLength: 1 }), (input) => {
