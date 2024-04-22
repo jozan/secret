@@ -16,24 +16,24 @@
   ],
   "author": "jozan <johan@latehours.net>",
   "sideEffects": false,
-  "main": "./dist/cjs/secret.js",
+  "type": "module",
   "module": "./dist/esm/secret.js",
   "types": "./dist/dts/secret.d.ts",
   "exports": {
     ".": {
       "types": "./dist/dts/secret.d.ts",
       "import": "./dist/esm/secret.js",
-      "default": "./dist/cjs/secret.js"
+      "default": "./dist/esm/secret.js"
     },
     "./io-ts": {
       "types": "./dist/dts/io-ts/secret.d.ts",
       "import": "./dist/esm/io-ts/secret.js",
-      "default": "./dist/cjs/io-ts/secret.js"
+      "default": "./dist/esm/io-ts/secret.js"
     },
     "./zod": {
       "types": "./dist/dts/zod/secret.d.ts",
       "import": "./dist/esm/zod/secret.js",
-      "default": "./dist/cjs/zod/secret.js"
+      "default": "./dist/esm/zod/secret.js"
     }
   },
   "files": [
@@ -42,24 +42,18 @@
     "./dist/**/*.map"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.24.1",
-    "@babel/core": "^7.24.4",
-    "@babel/plugin-transform-export-namespace-from": "^7.24.1",
-    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
     "@types/bun": "latest",
-    "babel-plugin-annotate-pure-calls": "^0.4.0",
-    "fast-check": "^3.17.1",
+    "fast-check": "^3.17.2",
     "fp-ts": "^2.16.5",
     "io-ts": "^2.2.21",
     "typescript": "^5.4.5",
-    "zod": "^3.22.4"
+    "zod": "^3.23.0"
   },
   "scripts": {
     "clean": "rm -r ./dist",
     "check": "tsc -b tsconfig.json",
     "build": "bun run clean && bun run build-ci",
-    "build-ci": "bun run build-esm && bun run build-cjs",
-    "build-esm": "tsc -b tsconfig.build.json",
-    "build-cjs": "babel dist/esm --plugins @babel/transform-export-namespace-from --plugins @babel/transform-modules-commonjs --out-dir dist/cjs --source-maps"
+    "build-ci": "bun run build-esm",
+    "build-esm": "tsc -b tsconfig.build.json"
   }
 }
