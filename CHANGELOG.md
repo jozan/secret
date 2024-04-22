@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/jozan/secret/compare/v0.5.1...v0.6.0) (2024-04-22)
+
+
+### Features
+
+* drop commonjs, embrace esm ([b21b7a4](https://github.com/jozan/secret/commit/b21b7a4d5f6a9d204c3df192fab3013116c4e74d))
+
 ## [0.5.1](https://github.com/jozan/secret/compare/v0.5.0...v0.5.1) (2024-04-22)
 
 
