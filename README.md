@@ -106,7 +106,7 @@ if (secret.success) {
 }
 ```
 
-## aknowledgements
+## acknowledgements
 
 the idea for this library came from the rust cargo [`secrecy`](https://docs.rs/secrecy/latest/secrecy/).
 
