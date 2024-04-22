@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/jozan/secret/compare/v0.5.0...v0.5.1) (2024-04-22)
+
+
+### Bug Fixes
+
+* esm/cjs exports ([7212b93](https://github.com/jozan/secret/commit/7212b9340736af3e3c155fd906b9ec4aaf7b4f2c))
+
 ## [0.5.0](https://github.com/jozan/secret/compare/v0.4.0...v0.5.0) (2024-04-16)
 
 
