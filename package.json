@@ -1,25 +1,39 @@
 {
   "name": "@latehours/secret",
   "version": "0.5.0",
-  "type": "module",
-  "module": "dist/esm/secret.js",
-  "main": "dist/cjs/secret.js",
-  "types": "dist/dts/secret.d.ts",
+  "description": "`secret` is a simple utility libraty for handling secrets in a typescript app",
+  "license": "MIT",
+  "homepage": "https://github.com/jozan/secret#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jozan/secret.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jozan/secret/issues"
+  },
+  "keywords": [
+    "secret"
+  ],
+  "author": "jozan <johan@latehours.net>",
+  "sideEffects": false,
+  "main": "./dist/cjs/secret.js",
+  "module": "./dist/esm/secret.js",
+  "types": "./dist/dts/secret.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/dts/secret.d.ts",
       "import": "./dist/esm/secret.js",
-      "require": "./dist/cjs/secret.js",
-      "types": "./dist/dts/secret.d.ts"
+      "default": "./dist/cjs/secret.js"
     },
     "./io-ts": {
+      "types": "./dist/dts/io-ts/secret.d.ts",
       "import": "./dist/esm/io-ts/secret.js",
-      "require": "./dist/cjs/io-ts/secret.js",
-      "types": "./dist/dts/io-ts/secret.d.ts"
+      "default": "./dist/cjs/io-ts/secret.js"
     },
     "./zod": {
+      "types": "./dist/dts/zod/secret.d.ts",
       "import": "./dist/esm/zod/secret.js",
-      "require": "./dist/cjs/zod/secret.js",
-      "types": "./dist/dts/zod/secret.d.ts"
+      "default": "./dist/cjs/zod/secret.js"
     }
   },
   "files": [
@@ -40,20 +54,6 @@
     "typescript": "^5.4.5",
     "zod": "^3.22.4"
   },
-  "description": "`secret` is a simple utility libraty for managing secrets in a TypeScript app.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jozan/secret.git"
-  },
-  "keywords": [
-    "secret"
-  ],
-  "author": "jozan <johan@latehours.net>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jozan/secret/issues"
-  },
-  "homepage": "https://github.com/jozan/secret#readme",
   "scripts": {
     "clean": "rm -r ./dist",
     "check": "tsc -b tsconfig.json",
