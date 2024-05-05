@@ -1,7 +1,11 @@
 import * as fc from "fast-check";
 import { expect, describe, test } from "bun:test";
-import * as SecretValue from "../secret";
-import { SecretCodec, StringToSecret, SecretToExposedString } from "./secret";
+import * as SecretValue from "@latehours/secret";
+import {
+  SecretCodec,
+  StringToSecret,
+  SecretToExposedString,
+} from "@latehours/io-ts/secret";
 import { pipe } from "fp-ts/function";
 import { fold } from "fp-ts/Either";
 

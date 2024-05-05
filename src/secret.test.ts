@@ -3,7 +3,7 @@ import { expect, describe, test, beforeAll, afterAll } from "bun:test";
 import os from "node:os";
 import fs from "node:fs";
 import crypto from "node:crypto";
-import * as Secret from "./secret";
+import * as Secret from "@latehours/secret";
 
 describe("secret encode/decode", () => {
   test("should encode a string to secret and back to original", () => {

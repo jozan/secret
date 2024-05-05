@@ -1,4 +1,4 @@
-import * as SecretInternal from "../secret";
+import * as SecretInternal from "@latehours/secret";
 import { make, type Codec } from "io-ts/Codec";
 import {
   string as Dstring,

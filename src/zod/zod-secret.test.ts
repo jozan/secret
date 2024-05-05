@@ -1,7 +1,7 @@
 import * as fc from "fast-check";
 import { expect, describe, test } from "bun:test";
-import * as SecretValue from "../secret";
-import { Secret as SecretSchema } from "./secret";
+import * as SecretValue from "@latehours/secret";
+import { Secret as SecretSchema } from "@latehours/zod/secret";
 import { z } from "zod";
 
 describe("secret encode/decode zod", () => {

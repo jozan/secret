@@ -1,4 +1,4 @@
-import * as SecretInternal from "../secret";
+import * as SecretInternal from "@latehours/secret";
 import { z } from "zod";
 
 export const Secret = z
