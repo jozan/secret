@@ -1,6 +1,6 @@
 {
   "name": "@latehours/secret",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "`secret` is a simple utility libraty for handling secrets in a typescript app",
   "license": "MIT",
   "homepage": "https://github.com/jozan/secret#readme",

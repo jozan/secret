@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/jozan/secret/compare/v0.6.0...v0.7.0) (2024-05-05)
+
+
+### Bug Fixes
+
+* resolve paths ([e76e325](https://github.com/jozan/secret/commit/e76e325db2a27dc6c63421500f9e1f43184de372))
+
 ## [0.6.0](https://github.com/jozan/secret/compare/v0.5.1...v0.6.0) (2024-04-22)
 
 
