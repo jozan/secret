@@ -13,7 +13,7 @@ describe("secret encode/decode", () => {
         const exposed = Secret.expose(secret);
 
         expect(exposed).toEqual(input);
-      })
+      }),
     );
   });
 
@@ -26,7 +26,7 @@ describe("secret encode/decode", () => {
 
         expect(isSecret).toBe(true);
         expect(notSecret).toBe(false);
-      })
+      }),
     );
   });
 
@@ -37,7 +37,7 @@ describe("secret encode/decode", () => {
         const secret2 = Secret.fromString(input);
 
         expect(secret1.equals(secret2)).toBe(true);
-      })
+      }),
     );
   });
 
@@ -48,7 +48,7 @@ describe("secret encode/decode", () => {
         const keys = Object.keys(secret);
 
         expect(keys).toEqual([]);
-      })
+      }),
     );
   });
 
@@ -59,7 +59,7 @@ describe("secret encode/decode", () => {
         const props = Object.getOwnPropertyNames(secret);
 
         expect(props).toEqual(["toString", "toJSON", "valueOf"]);
-      })
+      }),
     );
   });
 
@@ -71,7 +71,7 @@ describe("secret encode/decode", () => {
         const stringified = JSON.stringify(obj);
 
         expect(stringified).toEqual('{"secret":"[REDACTED]"}');
-      })
+      }),
     );
   });
 
@@ -83,7 +83,7 @@ describe("secret encode/decode", () => {
         const stringified = JSON.stringify(obj, (_key, value) => value);
 
         expect(stringified).toEqual('{"secret":"[REDACTED]"}');
-      })
+      }),
     );
   });
 
@@ -97,9 +97,9 @@ describe("secret encode/decode", () => {
         expect(stringified).toEqual(
           `{
   "secret": "[REDACTED]"
-}`
+}`,
         );
-      })
+      }),
     );
   });
 
@@ -119,7 +119,7 @@ describe("secret encode/decode", () => {
 
         const redacted4 = secret.toLocaleString();
         expect(redacted4).toEqual("[REDACTED]");
-      })
+      }),
     );
   });
 
@@ -137,7 +137,7 @@ describe("secret encode/decode", () => {
             expect.unreachable();
           }
         }
-      })
+      }),
     );
   });
 
@@ -148,7 +148,7 @@ describe("secret encode/decode", () => {
         const value = secret.valueOf();
 
         expect(value).toEqual("[REDACTED]");
-      })
+      }),
     );
   });
 });
@@ -223,7 +223,7 @@ describe("secret: output to file", () => {
         const fileContent = tempFs.readSync();
 
         expect(fileContent).toEqual("[REDACTED]");
-      })
+      }),
     );
   });
 });
@@ -286,7 +286,7 @@ describe("secret: stdout & stderr", () => {
     const lineStartsWithSpaces = "\\s{4,}.*\\n";
     const redactedPattern = "\\s*error:\\s+\\[REDACTED\\]\\s*\\n";
     const redactedErrorPattern = new RegExp(
-      lineStartsWithSpaces + redactedPattern + lineStartsWithSpaces
+      lineStartsWithSpaces + redactedPattern + lineStartsWithSpaces,
     );
 
     expect(stderr).toMatch(redactedErrorPattern);
