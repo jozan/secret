@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/jozan/secret/compare/v0.7.0...v1.0.0) (2024-08-18)
+
+
+### Documentation
+
+* add class example ([cb02052](https://github.com/jozan/secret/commit/cb02052031df3f7709f6f2438b226663f03d85c9))
+
 ## [0.7.0](https://github.com/jozan/secret/compare/v0.6.0...v0.7.0) (2024-05-05)
 
 
