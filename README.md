@@ -9,23 +9,22 @@
 [![package size](https://deno.bundlejs.com/?q=%40latehours/secret&badge=detailed&badge-style=flat&label=size)](https://bundlejs.com/?q=%40latehours/secret)
 
 **`secret`** is a simple utility library for handling sensitive data in any
-typescript app. no more accidentally leaking tokens or emails into logs!
+typescript app. no more leaking tokens or emails into logs by accident.
 
 is has **zero dependencies** and has fairly exhaustive test coverage.
 
 ### motivation
 
-the main purpose is to prevent accidental leaking of secrets into logs,
-stdout, JSON.stringify calls, writes to files and so on by the developer.
-`secret` makes revealing the secret value explicit.
+`secret` makes revealing the secret value explicit and intentional. it
+prevents accidental leaking of secrets into logs, stdout, JSON.stringify
+calls, writes to files and so on by the developer.
 
 keep in mind that the secret is still stored in memory unencrypted and can be
 read by a debugger or by inspecting the memory of the process. this is not a
-security library. continue to use encryption for sensitive data at rest.
+security library. continue to use encryption for sensitive data.
 
-behind the scenes the secret is stored in the secret object as a bytes array so
-it's not plaintext. but keep in mind that this is more security by obscurity
-than anything else.
+behind the scenes the secret is stored in javascript object as a bytes array,
+not plaintext. this is more security by obscurity than anything else.
 
 ## usage
 
@@ -52,19 +51,54 @@ console.log(hidden); // logs [REDACTED]
 const exposed = Secret.expose(hidden);
 ```
 
-when wrapping a value into a secret in `io-ts` or `zod` schema make sure to
-clean up any intermediate secrets such as the unparsed input.
+#### considerations
+
+when wrapping a value into a secret such as in `io-ts` or `zod` schema make
+sure to clean up any intermediate secrets such as the unparsed input.
 
 sending a secret over the network is not possible as the secret is not
 serializable by design. use encryption for that or better yet, don't handle the
 secret at all.
 
+### usage as a `Secret` `class`
+
+sometimes it can be more convenient to wrap the secret into a class and pass it
+around in your app. this way one doesn't need to litter codebase with
+`@latehours/secret` imports.
+
+example code:
+
+```typescript
+import { fromString, expose }  from "@latehours/secret"
+import type { Secret as SecretInternal } from "@latehours/secret"
+
+class Secret {
+  secret: SecretInternal
+
+  constructor(value: string) {
+    this.secret = fromString(value)
+  }
+
+  expose() {
+    return expose(this.secret)
+  }
+
+  toString() {
+    return this.secret.toString()
+  }
+}
+
+export function createSecret(value: string) {
+  return new Secret(value)
+}
+```
+
 ### `io-ts` codec
 
 provided for convenience. check out tests for exported `io-ts` `decoder` and
-`encoder` usage.
+`encoder` for usage.
 
-you need to have `io-ts` installed in your project.
+you need to have `fp-ts` and `io-ts` installed in your project.
 
 ```typescript
 import { SecretCodec } from "@latehours/secret/io-ts";
