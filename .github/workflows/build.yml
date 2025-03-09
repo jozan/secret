@@ -2,12 +2,15 @@ name: Check types and build
 on: push
 jobs:
   build:
+    strategy:
+      matrix:
+        bun-version: [1.2.3, 1.2.4, latest]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version-file: ".bun-version"
+          bun-version: ${{ matrix.bun-version }}
       - run: bun install --frozen-lockfile
       - run: bun run type-check
       - run: bun format-check
