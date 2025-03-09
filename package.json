@@ -52,7 +52,8 @@
   },
   "scripts": {
     "clean": "rm -r ./dist",
-    "check": "tsc -b tsconfig.json",
+    "type-check": "tsc -b tsconfig.json",
+    "format-check": "prettier --check .",
     "build": "bun run clean && bun run build-ci",
     "build-ci": "bun run build-esm",
     "build-esm": "tsc -b tsconfig.build.json"
