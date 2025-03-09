@@ -23,10 +23,10 @@ describe("secret encode/decode io-ts codec", () => {
             (s) => {
               expect(SecretValue.isSecret(s)).toBe(true);
               expect(SecretValue.expose(s)).toEqual(input);
-            }
-          )
+            },
+          ),
         );
-      })
+      }),
     );
   });
 
@@ -37,7 +37,7 @@ describe("secret encode/decode io-ts codec", () => {
         const encoded = SecretToExposedString.encode(secret);
 
         expect(encoded).toEqual(input);
-      })
+      }),
     );
   });
 
@@ -54,10 +54,10 @@ describe("secret encode/decode io-ts codec", () => {
             (s) => {
               const encoded = SecretCodec.encode(s);
               expect(encoded).toEqual(input);
-            }
-          )
+            },
+          ),
         );
-      })
+      }),
     );
   });
 });

@@ -46,12 +46,14 @@
     "fast-check": "^3.21.0",
     "fp-ts": "^2.16.9",
     "io-ts": "^2.2.21",
+    "prettier": "^3.5.3",
     "typescript": "^5.5.4",
     "zod": "^3.23.8"
   },
   "scripts": {
     "clean": "rm -r ./dist",
-    "check": "tsc -b tsconfig.json",
+    "type-check": "tsc -b tsconfig.json",
+    "format-check": "prettier --check .",
     "build": "bun run clean && bun run build-ci",
     "build-ci": "bun run build-esm",
     "build-esm": "tsc -b tsconfig.build.json"

@@ -19,9 +19,9 @@ export const StringToSecret: Decoder<unknown, SecretInternal.Secret> = pipe(
       ? success(secret)
       : failure(
           s,
-          `cannot decode given value, should be parsable into a secret`
+          `cannot decode given value, should be parsable into a secret`,
         );
-  })
+  }),
 );
 
 export type StringToSecret = TypeOf<typeof StringToSecret>;
@@ -35,5 +35,5 @@ export type SecretToExposedString = OutputOf<typeof SecretToExposedString>;
 
 export const SecretCodec: Codec<unknown, string, SecretInternal.Secret> = make(
   StringToSecret,
-  SecretToExposedString
+  SecretToExposedString,
 );
