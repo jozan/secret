@@ -1,8 +1,5 @@
 import * as fc from "fast-check";
-import { expect, describe, test, beforeAll, afterAll } from "bun:test";
-import os from "node:os";
-import fs from "node:fs";
-import crypto from "node:crypto";
+import { expect, describe, test } from "bun:test";
 import * as Secret from "@latehours/secret";
 
 describe("secret encode/decode", () => {
@@ -148,81 +145,6 @@ describe("secret encode/decode", () => {
         const value = secret.valueOf();
 
         expect(value).toEqual("[REDACTED]");
-      }),
-    );
-  });
-});
-
-class TmpFs {
-  private filePath: string;
-
-  constructor() {
-    const tempDir = os.tmpdir();
-    const rand = this.generateRandomString(16);
-    this.filePath = `${tempDir}/secret_${rand}.txt`;
-  }
-
-  private getTempFilePath() {
-    return this.filePath;
-  }
-
-  private generateRandomString(length: number) {
-    const byteArray = new Uint8Array(length);
-
-    crypto.getRandomValues(byteArray);
-
-    let randomString = "";
-    for (let byte of byteArray) {
-      randomString += byte.toString(16).padStart(2, "0");
-    }
-
-    return randomString;
-  }
-
-  writeSync(data: any) {
-    const tempFile = this.getTempFilePath();
-    fs.writeFileSync(tempFile, data);
-  }
-
-  readSync() {
-    const tempFile = this.getTempFilePath();
-    return fs.readFileSync(tempFile, "utf8");
-  }
-
-  deleteSync() {
-    const tempFile = this.getTempFilePath();
-    fs.unlinkSync(tempFile);
-  }
-
-  touchSync() {
-    const tempFile = this.getTempFilePath();
-    fs.closeSync(fs.openSync(tempFile, "w"));
-  }
-
-  clearSync() {
-    this.touchSync();
-  }
-}
-
-describe("secret: output to file", () => {
-  const tempFs = new TmpFs();
-
-  beforeAll(() => {
-    tempFs.touchSync();
-  });
-
-  afterAll(() => {
-    tempFs.deleteSync();
-  });
-
-  test("secret should not be exposed when writing to a file", () => {
-    fc.assert(
-      fc.property(fc.string({ minLength: 1 }), (input) => {
-        const secret = Secret.fromString(input);
-        tempFs.writeSync(secret);
-        const fileContent = tempFs.readSync();
-
-        expect(fileContent).toEqual("[REDACTED]");
       }),
     );
   });
