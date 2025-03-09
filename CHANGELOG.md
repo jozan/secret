@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/jozan/secret/compare/v1.0.0...v1.0.1) (2025-03-09)
+
+
+### Features
+
+* add @badrap/valita schema ([5e922a9](https://github.com/jozan/secret/commit/5e922a9837a87332cdb46ef98a3555e27248a212))
+
 ## [1.0.0](https://github.com/jozan/secret/compare/v0.7.0...v1.0.0) (2024-08-18)
 
 
