@@ -69,27 +69,27 @@ around in your app. this way one doesn't need to litter codebase with
 example code:
 
 ```typescript
-import { fromString, expose }  from "@latehours/secret"
-import type { Secret as SecretInternal } from "@latehours/secret"
+import { fromString, expose } from "@latehours/secret";
+import type { Secret as SecretInternal } from "@latehours/secret";
 
 class Secret {
-  secret: SecretInternal
+  secret: SecretInternal;
 
   constructor(value: string) {
-    this.secret = fromString(value)
+    this.secret = fromString(value);
   }
 
   expose() {
-    return expose(this.secret)
+    return expose(this.secret);
   }
 
   toString() {
-    return this.secret.toString()
+    return this.secret.toString();
   }
 }
 
 export function createSecret(value: string) {
-  return new Secret(value)
+  return new Secret(value);
 }
 ```
 
@@ -115,8 +115,8 @@ pipe(
     (secret) => {
       const exposed = SecretCodec.encode(secret);
       expect(exposed).toEqual("tussihovi");
-    }
-  )
+    },
+  ),
 );
 ```
 

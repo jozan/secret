@@ -15,7 +15,7 @@ describe("secret encode/decode zod", () => {
           const exposed = SecretValue.expose(secret.data);
           expect(exposed).toEqual(input);
         }
-      })
+      }),
     );
   });
 
@@ -33,7 +33,7 @@ describe("secret encode/decode zod", () => {
           const exposed = SecretValue.expose(result.data.redacted);
           expect(exposed).toEqual(input);
         }
-      })
+      }),
     );
   });
 });

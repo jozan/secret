@@ -3,8 +3,7 @@ name: Issue template
 about: Create a new issue to describe your problem
 title: "[BUG] short description of your issue"
 labels: needs-triage
-assignees: ''
-
+assignees: ""
 ---
 
 **Describe the issue**
@@ -21,9 +20,10 @@ Describe steps to reproduce the behavior, with code examples that can be copy-pa
 A clear and concise description of what you expected to happen.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. macOS, Linux]
- - Runtime and version [e.g. node 20.1 or bun 1.1.3]
- - Secret library version [e.g. 1.0.0]
+
+- OS: [e.g. macOS, Linux]
+- Runtime and version [e.g. node 20.1 or bun 1.1.3]
+- Secret library version [e.g. 1.0.0]
 
 **Additional context**
 Add any other context about the problem here.
