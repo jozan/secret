@@ -140,6 +140,26 @@ if (secret.success) {
 }
 ```
 
+### `@badrap/valita` schema
+
+provided for convenience.
+
+you need to have `@badrap/valita` installed in your project.
+
+```typescript
+import * as Secret from "@latehours/secret";
+import { Secret as SecretSchema } from "@latehours/secret/valita";
+
+const secret = SecretSchema.try(input);
+
+if (secret.ok) {
+  expect(Secret.isSecret(secret.value)).toBe(true);
+
+  const exposed = Secret.expose(secret.value);
+  expect(exposed).toEqual(input);
+}
+```
+
 ## acknowledgements
 
 the idea for this library came from the rust cargo [`secrecy`](https://docs.rs/secrecy/latest/secrecy/).

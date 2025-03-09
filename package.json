@@ -34,6 +34,11 @@
       "types": "./dist/dts/zod/secret.d.ts",
       "import": "./dist/esm/zod/secret.js",
       "default": "./dist/esm/zod/secret.js"
+    },
+    "./valita": {
+      "types": "./dist/dts/valita/secret.d.ts",
+      "import": "./dist/esm/valita/secret.js",
+      "default": "./dist/esm/valita/secret.js"
     }
   },
   "files": [
@@ -42,6 +47,7 @@
     "./dist/**/*.map"
   ],
   "devDependencies": {
+    "@badrap/valita": "^0.4.3",
     "@types/bun": "latest",
     "fast-check": "^3.21.0",
     "fp-ts": "^2.16.9",
