@@ -49,7 +49,7 @@
   "devDependencies": {
     "@badrap/valita": "^0.4.3",
     "@types/bun": "latest",
-    "fast-check": "^3.21.0",
+    "fast-check": "^4.0.0",
     "fp-ts": "^2.16.9",
     "io-ts": "^2.2.21",
     "prettier": "^3.5.3",
